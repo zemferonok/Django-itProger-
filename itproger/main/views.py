@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request ):
-    return HttpResponse('<h2>Testing my work</h2>')
+    return render(request, 'main/index.html')
 
 def about(request ):
-    return HttpResponse('<h2>About my work</h2>')
+    return render(request, 'main/about.html')
 
 def other(request ):
     return HttpResponse('<h2>All other not working urls</h2>')
