@@ -1,15 +1,31 @@
 {% extends "main/layout.html" %}
 
-{% block title %}Main Page{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
 <div class="features">
-  <h1>Main Page</h1>
+  <h1>{{ title }}</h1>
 
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt esse consectetur nesciunt libero beatae dolore, magni
     reprehenderit eos ipsa? Tempore maxime error ad, itaque aliquam distinctio officia molestiae repellendus adipisci.
   </p>
 
-  <button class="btn btn-warning">Main Button</button>
+  <button class="btn btn-warning">
+    {% filter upper%}
+    Main Button
+    {% endfilter %}
+  </button>
+
+  {% if values %}
+  <br>
+  {{ values|upper }}
+
+  {% if values|length <= 4 %} <div>
+    {% for value in values %}
+    <span>{{ value|lower }}</span>
+    {% endfor %}
+</div>
+{% endif %}
+{% endif %}
 </div>
 {% endblock %}
